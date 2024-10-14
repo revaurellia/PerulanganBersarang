@@ -1,0 +1,198 @@
+import java.util.Scanner;
+public class TugasPerulanganBersarang {
+    public static void main(String[] args) {
+       int stayam,kambing = 0,pcayam,empal = 0,tahu,telur,pyayam,jumlah = 0,jenis,pilih1 = 0,pilih2 = 0,pilih3,hargabaru = 0;
+       double diskon,total=0,grandtotal = 0,pemasukan = 0;
+       boolean member = false;
+       stayam = 1500;kambing = 3000;pcayam = 13000;empal = 15000;tahu = 5000;telur = 7000;pyayam = 10000;
+       Scanner sc = new Scanner (System.in);
+       //REVA AURELLIA AZZAH - 24082010115 (1C)
+       System.out.println("============== WARUNG SEDERHANA ===============");
+       System.out.println("1. Kasir");
+       System.out.println("2. Admin");
+       System.out.println("3. Owner");
+       System.out.println("4. Exit");
+       do {
+           System.out.println("-----------------------------------------------");
+           System.out.print("Tampilkan menu  = ");
+           pilih1 = sc.nextInt();
+           switch (pilih1){
+               case 1 :
+                    System.out.println("-----------------------------------------------");
+                    System.out.println("1. Sate         - 1) Sate Ayam");
+                    System.out.println("                  2) Sate Kambing");
+                    System.out.println("2. Pecel        - 1) Lauk Ayam");
+                    System.out.println("                  2) Lauk Empal");
+                    System.out.println("3. Penyetan     - 1) Lauk Tahu");
+                    System.out.println("                  2) Lauk Telur");
+                    System.out.println("                  3) Lauk Ayam");
+                    System.out.println("4. Selesai");
+                   do {
+                       System.out.println("-----------------------------------------------");
+                       System.out.print("Pilihan menu    = ");
+                       pilih2 = sc.nextInt(); 
+                       switch (pilih2){
+                            case 1 :
+                                System.out.print("Jenis Lauk      = ");
+                                jenis = sc.nextInt();
+                                if (jenis==1){                                    
+                                    System.out.print("Jumlah          = ");
+                                    jumlah = sc.nextInt();
+                                    total = stayam*jumlah;
+                                    System.out.println("Total           = "+total);    
+                                }else if (jenis==2){
+                                    System.out.print("Jumlah          = ");
+                                    jumlah = sc.nextInt();
+                                    total = kambing*jumlah;
+                                    System.out.println("Total           = "+total);
+                                    grandtotal = total+grandtotal;
+                                }                                    
+                                break;
+                            case 2 :
+                                System.out.print("Jenis Lauk      = ");
+                                jenis = sc.nextInt();
+                                if (jenis==1){                                    
+                                    System.out.print("Jumlah          = ");
+                                    jumlah = sc.nextInt();
+                                    total = pcayam*jumlah;
+                                    System.out.println("Total           = "+total);
+                                    grandtotal = total+grandtotal;   
+                                }else if (jenis==2){
+                                    System.out.print("Jumlah          = ");
+                                    jumlah = sc.nextInt();
+                                    total = empal*jumlah;
+                                    System.out.println("Total           = "+total);
+                                    grandtotal = total+grandtotal;
+                                }                                    
+                                break;
+                            case 3 :
+                                System.out.print("Jenis Lauk      = ");
+                                jenis = sc.nextInt();
+                                switch (jenis){
+                                    case 1 :                                    
+                                    System.out.print("Jumlah          = ");
+                                    jumlah = sc.nextInt();
+                                    total = tahu*jumlah;
+                                    System.out.println("Total           = "+total);
+                                    grandtotal=grandtotal+total;
+                                        break;
+                                    case 2:                                    
+                                    System.out.print("Jumlah          = ");
+                                    jumlah = sc.nextInt();
+                                    total = telur*jumlah;
+                                    System.out.println("Total           = "+total);
+                                    grandtotal=grandtotal+total;
+                                        break;
+                                    case 3 :                                    
+                                    System.out.print("Jumlah          = ");
+                                    jumlah = sc.nextInt();
+                                    total = pyayam*jumlah;
+                                    System.out.println("Total           = "+total);
+                                    grandtotal=grandtotal+total;
+                                        break;
+                                }
+                                break;
+                            case 4 :
+                                System.out.println("-----------------------------------------------");
+                                break;
+                            default :
+                                System.out.println("Pilihan tidak valid");
+                        }
+                   }while (pilih2!=4);
+                   System.out.println("Pelanggan pemilik kartu member warung sederhana");
+                   System.out.println("dan mendapatkan diskon sebesar 5%");
+                   System.out.print("Terdeteksi kartu member (true/false)? ");
+                   member = sc.nextBoolean();
+                   System.out.println("-----------------------------------------------");
+                   if (member){
+                       System.out.println("Total           = "+grandtotal);
+                       diskon=0.95;
+                       grandtotal=grandtotal*diskon;
+                       System.out.println("Pembayaran      = "+grandtotal);
+                       pemasukan+=grandtotal;
+                   }else {
+                       System.out.println("Pembayaran      = "+grandtotal);
+                       pemasukan+=grandtotal;
+                   }
+                   break;
+               case 2 :
+                   System.out.println("-------------- Pengubahan Harga ---------------");
+                   System.out.println("1) Harga Baru Sate Ayam");
+                   System.out.println("2) Harga Baru Sate Kambing");
+                   System.out.println("3) Harga Baru Pecel Ayam");
+                   System.out.println("4) Harga Baru Pecel Empal");
+                   System.out.println("5) Harga Baru Penyetan Tahu");
+                   System.out.println("6) Harga Baru Penyetan Telur");
+                   System.out.println("7) Harga Baru Penyetan Ayam");
+                   System.out.println("8) Kembali ke pilihan menu");
+                   do {
+                       System.out.println("-----------------------------------------------");
+                       System.out.print("Menu yang ingin dirubah = ");
+                       pilih3 = sc.nextInt();
+                       switch (pilih3){
+                           case 1 :
+                               System.out.print("Masukkan harga baru     = ");
+                               hargabaru = sc.nextInt();
+                               stayam=hargabaru;
+                               total=hargabaru*jumlah;
+                               break;
+                           case 2 :
+                               System.out.print("Masukkan harga baru     = ");
+                               hargabaru = sc.nextInt();
+                               kambing=hargabaru;
+                               total=hargabaru*jumlah;
+                               break;
+                           case 3 :
+                               System.out.print("Masukkan harga baru     = ");
+                               hargabaru = sc.nextInt();
+                               pcayam=hargabaru;
+                               total=hargabaru*jumlah;
+                               break;
+                           case 4 :
+                               System.out.print("Masukkan harga baru     = ");
+                               hargabaru = sc.nextInt();
+                               empal=hargabaru;
+                               total=hargabaru*jumlah;
+                               break;
+                           case 5 :
+                               System.out.print("Masukkan harga baru     = ");
+                               hargabaru = sc.nextInt();
+                               tahu=hargabaru;
+                               total=hargabaru*jumlah;
+                               break;
+                           case 6 :
+                               System.out.print("Masukkan harga baru     = ");
+                               hargabaru = sc.nextInt();
+                               telur=hargabaru;
+                               total=hargabaru*jumlah;
+                               break;
+                           case 7 :
+                               System.out.print("Masukkan harga baru     = ");
+                               hargabaru = sc.nextInt();
+                               pyayam=hargabaru;
+                               total=hargabaru*jumlah;
+                               break;
+                           case 8:
+                               System.out.println("-----------------------------------------------");
+                               break;
+                           default :
+                               System.out.println("Pilihan tidak terdeteksi, silahkan pilih menu lain");
+                       }                       
+                   }while (pilih3!=8);
+                   System.out.println("Harga berhasil diperbarui!");    
+                   System.out.println("                         *Kembali ke menu utama");
+                   break;
+               case 3 :
+                   System.out.println("--------------- Total Transaksi ---------------");
+                   System.out.println("Total pemasukan = "+pemasukan);
+                   break;
+               case 4 :
+                   break;
+               default :
+                   System.out.println("Pilihan menu tidak terdeteksi :(");
+           }
+       }while (pilih1!=4);
+       System.out.println("================= Thank You ===================");
+    }
+    
+}
